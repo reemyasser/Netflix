@@ -1,4 +1,4 @@
-import "./watch.scss"
+import "./watch.css"
 import React from 'react'
 import { ArrowBackOutlined } from "@mui/icons-material";
 
