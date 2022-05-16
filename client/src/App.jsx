@@ -1,5 +1,5 @@
 import React from 'react'
-import "./app.scss"
+import "./app.css"
 
 import Register from './pages/register/Register'
 
