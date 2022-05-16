@@ -1,6 +1,6 @@
 import React from 'react'
 
-import "./listItem.scss"
+import "./listItem.css"
 
 import { useState } from "react";
 import { Add, PlayArrow, ThumbDownOutlined, ThumbUpAltOutlined } from '@mui/icons-material';
