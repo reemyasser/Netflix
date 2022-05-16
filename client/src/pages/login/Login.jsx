@@ -1,5 +1,5 @@
 
-import "./login.scss";
+import "./login.css";
 
 export default function Login() {
  
