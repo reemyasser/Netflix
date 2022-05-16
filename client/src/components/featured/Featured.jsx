@@ -1,6 +1,6 @@
 import React from 'react'
 
-import "./featured.scss"
+import "./featured.css"
 
 import { InfoOutlined, PlayArrow } from '@mui/icons-material';
 
