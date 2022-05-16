@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useState } from "react";
-import "./register.scss";
+import "./register.css";
 
 export default function Register() {
   const [email, setEmail] = useState("");
