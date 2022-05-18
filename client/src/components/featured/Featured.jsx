@@ -1,10 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import "./featured.scss"
 
 import { InfoOutlined, PlayArrow } from '@mui/icons-material';
 
 function Featured({type}) {
+  let [content,setcontent]=useState([])
+
+  useEffect(()=>{
+    try{
+      fetch(`movies/random/${type?"?type="+type:""}`,{
+        
+          headers: {
+            token:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODJiNjI4YzIzNGI0MWE1ODcwNGVkMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1Mjc4OTQxNiwiZXhwIjoxNjUzMjIxNDE2fQ.clBDFOekjKMrTqlBpg0NtmDZOD1ayDGW_FMupFq4Tio"
+          },
+        
+      }).then((respose)=>(respose.json()))
+      .then((data)=>{console.log(data[0]);setcontent(data)}).catch((err)=>{console.log(err)})
+    }
+    catch(err){
+      console.log(err)
+    }
+  },[])
+  // console.log(content[0].img);
   return (
     <div className="featured">
       {type &&(
@@ -35,19 +54,14 @@ function Featured({type}) {
       )}
         
         <img 
-            src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""/>
+            src={content[0].img}        alt=""/>
 
 <div className="info">
         <img
-          src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABUZdeG1DrMstq-YKHZ-dA-cx2uQN_YbCYx7RABDk0y7F8ZK6nzgCz4bp5qJVgMizPbVpIvXrd4xMBQAuNe0xmuW2WjoeGMDn1cFO.webp?r=df1"
-          alt=""
+          src={content[0].img}         alt=""
         />
         <span className="desc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          adipisci repellendus eum quasi illo, velit numquam, maxime tempora
-          sint deleniti, aliquid qui? Facilis, adipisci! Ratione hic repudiandae
-          temporibus eum earum?
+{content[0].desc}
         </span>
 
         <div className="buttons">

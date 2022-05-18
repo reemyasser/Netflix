@@ -1,23 +1,32 @@
 import "./watch.scss"
 import React from 'react'
 import { ArrowBackOutlined } from "@mui/icons-material";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Watch() {
+  const location =useLocation();
+  console.log(location.state.video)
+
+
     return (
+
       <div className="watch">
+        <Link to="/">
         <div className="back">
           <ArrowBackOutlined />
           Home
         </div>
-        <video
+        </Link>
+        {/* <video
+        id="player1"
           className="video"
           autoPlay
           progress
           controls
       
 
-          src=    "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761"
-        />
-      </div>
+          src=   "https://www.youtube.com/embed/L141JXk6wqA"   /> */}
+      <iframe   className="video" width="727" height="409" src={location.state.video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+           </div>
     );
   }
