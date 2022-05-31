@@ -1,28 +1,54 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-import "./listItem.scss"
+import "./listItem.css"
 
 import { useState } from "react";
 import { Add, PlayArrow, ThumbDownOutlined, ThumbUpAltOutlined } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
-export default function ListItem({ index }) {
+export default function ListItem({ index,movie }) {
+
+  let [listmovie,setmovie]=useState([])
+  useEffect(() => {
+ 
+    try {
+     fetch(
+        `/movies/find/${movie}
+        `,
+        {
+          headers: {
+            token:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODJiNjI4YzIzNGI0MWE1ODcwNGVkMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MzI0NzgxMCwiZXhwIjoxNjUzNjc5ODEwfQ.6MVzAfrHKCGhzmDu1im54AKrcpnLtkfKTYbzVk70hOk"
+          },
+        }
+    
+      ).then((res)=>(res.json())).then((data)=>{
+    setmovie(data)}).catch((err)=>{console.log(err)});
+    } catch (err) {
+      console.log(err);
+    }
+
+}, [movie]);
   const [isHovered, setIsHovered] = useState(false);
-  const trailer =
-    "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761";
+  const trailer =listmovie.trailer;
+
   return (
-    <div
+      <Link to={"/watch"}state={listmovie}>
+      <div
       className="listItem"
       style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <img
-        src="https://occ-0-1723-92.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABU7D36jL6KiLG1xI8Xg_cZK-hYQj1L8yRxbQuB0rcLCnAk8AhEK5EM83QI71bRHUm0qOYxonD88gaThgDaPu7NuUfRg.jpg?r=4ee"
-        alt=""
+        src={listmovie.img}
+        alt={listmovie.imgTitle}
       />
       {isHovered && (
         <>
-          <video src={trailer} autoPlay={true} loop />
+      <iframe  src={trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+
+          {/* <video src={trailer} autoPlay={true} loop /> */}
           <div className="itemInfo">
             <div className="icons">
               <PlayArrow className="icon" />
@@ -32,17 +58,17 @@ export default function ListItem({ index }) {
             </div>
             <div className="itemInfoTop">
               <span>1 hour 14 mins</span>
-              <span className="limit">+16</span>
-              <span>1999</span>
+              <span className="limit">+{listmovie.limit}</span>
+              <span>{listmovie.year}</span>
             </div>
             <div className="desc">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Praesentium hic rem eveniet error possimus, neque ex doloribus.
+            {listmovie.desc}
             </div>
-            <div className="genre">Action</div>
+            <div className="genre">{listmovie.genre}</div>
           </div>
         </>
       )}
     </div>
+      </Link>
   );
 }
