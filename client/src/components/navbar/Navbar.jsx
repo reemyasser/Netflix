@@ -1,15 +1,25 @@
-import { ArrowDropDown, Notifications, Search } from '@mui/icons-material'
-import { Button } from '@mui/material';
-import { useState} from 'react'
+import { ArrowDropDown} from '@mui/icons-material'
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+
+import IconButton from '@mui/material/IconButton';
+
+import SearchIcon from '@mui/icons-material/Search';
+
+import { useEffect, useState} from 'react'
 
 
 import { Link ,useNavigate} from 'react-router-dom';
 
 import "./navbar.css"
+import { Button } from '@mui/material';
+
 
 function Navbar({StateChanger,User}) {
 
     const [isScrolled, setIsScrolled] = useState(false);
+   let [searchval, setsearch] = useState();
+
     const navigate=useNavigate();
 
         window.onscroll = () => {
@@ -17,8 +27,17 @@ function Navbar({StateChanger,User}) {
         return () => (window.onscroll = null);
       };
      
+<<<<<<< HEAD
 
 
+=======
+useEffect(()=>{
+
+},[searchval])
+const searchvalue=(e)=>{
+setsearch(e.target.value);
+}
+>>>>>>> 79fa2c045847a3207cb44f00bd871ded90a34b83
 
   return (
      <div className={isScrolled ? "navbar scrolled" : "navbar"}>
@@ -28,22 +47,44 @@ function Navbar({StateChanger,User}) {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
             alt=""
           />
-          <Link to={"/home"} className="Link">
+          <Link state={searchval} to={"/home"} className="Link">
           <span>Homepage</span>
           </Link>
-          <Link   className="Link" to={"/series"}>
+          <Link state={searchval}  className="Link" to={"/series"}>
           <span>Series</span>
           </Link>
-          <Link  className="Link" to={"/movies"}>
+          <Link state={searchval}  className="Link" to={"/movies"}>
           <span>Movies</span>
           </Link>
-          <span>New and Popular</span>
-          <span>My List</span>
+         
+     
         </div>
         <div className="right">
-          <Search className="icon" />
-          <span>KID</span>
-          <Notifications className="icon" />
+      
+
+          <Paper
+      component="form"
+      sx={{height:40,marginRight:10, display: 'flex', alignItems: 'center', width: 300 }}
+    >
+   
+      <InputBase
+      
+      onChange={searchvalue}
+        sx={{  ml: 1, flex: 1 }}
+        
+        placeholder="Search Movies"
+        inputProps={{ 'aria-label': 'search google maps' }}
+      />
+      <Link  state={searchval}  className="Link"  to={"/search"}>
+      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+        <SearchIcon />
+      </IconButton>
+      </Link>
+
+    </Paper>
+
+
+
           <img
             src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
             alt=""
@@ -63,4 +104,4 @@ function Navbar({StateChanger,User}) {
   )
 }
 
-export default Navbar
+export default Navbar;

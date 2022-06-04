@@ -6,15 +6,22 @@ import {v4 as uuid} from 'uuid'
 import Navbar from '../../components/navbar/Navbar'
 
 import "./home.css"
+import { useLocation } from 'react-router-dom'
 
 
 
 function Home({type,stateChanger,Token,User}) {
   let [list,setLists]=useState();
   let [genre,setgenre]=useState();
+  let [searchval,setsearch]=useState();
+
+  const location =useLocation();
   
   useEffect(() => {
+
+
       try {
+        console.log(location)
        fetch(
           `lists${type ? "?type=" + type : ""}${
             genre ? "&genre=" + genre : ""
@@ -32,7 +39,7 @@ function Home({type,stateChanger,Token,User}) {
         console.log(err);
       }
 
-  }, [type,genre,Token]);
+  }, [type,genre,Token,location.state]);
  
   return (
     <div className="home">
@@ -42,7 +49,7 @@ function Home({type,stateChanger,Token,User}) {
         <Featured type={type} Token={Token} />
 
        {list&& list.map((list)=>(
-        <List key={uuid()} list={list}/>
+        <List state={searchval}  key={uuid()} list={list}/>
 
        ))}
         </div>

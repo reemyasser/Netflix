@@ -1,12 +1,18 @@
 import { ArrowBackIosOutlined, ArrowForwardIosOutlined } from '@mui/icons-material'
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ListItem from "../listItem/ListItem";
 import "./list.css";
 import {v4 as uuid} from 'uuid';
+import { useLocation } from 'react-router-dom';
+
 export default function List({list}) {
   const [isMoved, setIsMoved] = useState(false);
   const [slideNumber, setSlideNumber] = useState(0);
+const  [moviescontent,setmoviecontent]=useState(list.content)
+const location =useLocation();
+useEffect(()=>{
 
+},[])
   const listRef = useRef();
 
   const handleClick = (direction) => {
@@ -31,7 +37,7 @@ export default function List({list}) {
           style={{ display: !isMoved && "none" }}
         />
         <div className="container" ref={listRef}>
-          { list.content && list.content.map((movie,i)=>{
+          { moviescontent && moviescontent.map((movie,i)=>{
            
       return <ListItem key={uuid()} index={i}  movie={movie} />
 
