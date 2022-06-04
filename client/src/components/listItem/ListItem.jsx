@@ -5,15 +5,9 @@ import "./listItem.css"
 import { useState } from "react";
 import { Add, PlayArrow, ThumbDownOutlined, ThumbUpAltOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import { useTranslation } from 'react-i18next';
-export default function ListItem({ index,movie }) {
-  const { t, i18n } = useTranslation();
-=======
 
 export default function ListItem({ index,movie }) {
 
->>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
   let [listmovie,setmovie]=useState([])
   useEffect(() => {
  
@@ -63,11 +57,7 @@ export default function ListItem({ index,movie }) {
               <ThumbDownOutlined className="icon" />
             </div>
             <div className="itemInfoTop">
-<<<<<<< HEAD
-              <span>{t("1 hour 14 mins")}</span>
-=======
               <span>1 hour 14 mins</span>
->>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
               <span className="limit">+{listmovie.limit}</span>
               <span>{listmovie.year}</span>
             </div>

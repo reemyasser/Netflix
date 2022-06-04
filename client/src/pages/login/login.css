@@ -26,11 +26,7 @@
   justify-content: center;
   color: white;
 }
-<<<<<<< HEAD
-.login .container form {
-=======
 .login .container .form {
->>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
   width: 300px;
   height: 300px;
   padding: 30px;
@@ -40,28 +36,17 @@
   flex-direction: column;
   justify-content: space-around;
 }
-<<<<<<< HEAD
-.login .container form input {
-=======
 .login .container .form input {
->>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
   height: 40px;
   border-radius: 5px;
   background-color: gray;
   color: white;
   padding-left: 10px;
 }
-<<<<<<< HEAD
-.login .container form input::placeholder {
-  color: lightgray;
-}
-.login .container form button {
-=======
 .login .container .form input::placeholder {
   color: lightgray;
 }
 .login .container .form button {
->>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
   height: 40px;
   border-radius: 5px;
   background-color: red;
@@ -70,19 +55,10 @@
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
-  margin-top:20px;
-  margin-bottom: 20px;
 }
-<<<<<<< HEAD
-.login .container form span {
-  color: lightgray;
-}
-.login .container form span b {
-=======
 .login .container .form span {
   color: lightgray;
 }
 .login .container .form span b {
->>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
   color: white;
 }

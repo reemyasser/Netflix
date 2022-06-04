@@ -1,29 +1,11 @@
 import { useRef } from "react";
-<<<<<<< HEAD
-=======
 import { useState } from "react";
-<<<<<<< HEAD
-import "./register.css";
-import { useTranslation } from 'react-i18next';
-export default function Register() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-=======
->>>>>>> be08350d8f0e00d3ea213000d59b5af1421ca9c3
 import { NavLink,useNavigate } from "react-router-dom";
 import "./register.css";
 
-export default function Register({setEmail,setPassword}) {
-
+export default function Register({stateChanger}) {
+  const [_email, setEmail] = useState("");
   const navigate=useNavigate();
-<<<<<<< HEAD
-  const emailRef = useRef('');
-  const passwordRef = useRef('');
-  const handleFinish = () => {
-    setPassword(passwordRef.current.value);
-    navigate('/payment');
-=======
->>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -32,14 +14,6 @@ export default function Register({setEmail,setPassword}) {
     setEmail(emailRef.current.value);
   };
   const handleFinish = () => {
-<<<<<<< HEAD
-    setPassword(passwordRef.current.value);
-  };
-  const { t, i18n } = useTranslation();
-  return (
-    <div className="register">
-      <div className="top">
-=======
     const data = {email:_email,password:passwordRef.current.value};
     const myRequest = new Request('http://localhost:4000/api/auth/register', {
         method: 'POST',
@@ -59,7 +33,6 @@ export default function Register({setEmail,setPassword}) {
         console.log(err)
       }
    
->>>>>>> be08350d8f0e00d3ea213000d59b5af1421ca9c3
     
   }
   
@@ -68,39 +41,12 @@ export default function Register({setEmail,setPassword}) {
   
     <div className="register ">
      <div className="top">
->>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
         <div className="wrapper">
           <img
             className="logo"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
             alt=""
           />
-<<<<<<< HEAD
-          <button className="loginButton">{t("Sign In")}</button>
-        </div>
-      </div>
-      <div className="container">
-        <h1>{t("Unlimited movies, TV shows, and more.")}</h1>
-        <h2>{t("Watch anywhere. Cancel anytime.")}</h2>
-        <p> {t("Ready to watch? Enter your email to create or restart your membership.")}</p>
-        {!email ? (
-          <div className="input">
-            <input type="email" placeholder={t("email address")} ref={emailRef} />
-            <button className="registerButton" onClick={handleStart}>
-              Get Started
-            </button>
-          </div>
-        ) : (
-          <form className="input">
-            <input type="password" placeholder={t("password")} ref={passwordRef} />
-            <button className="registerButton" onClick={handleFinish}>
-              Start
-            </button>
-          </form>
-        )}
-      </div>
-    </div>
-=======
          
          <NavLink to={`/login`} className="loginButton">Sign In</NavLink>
         
@@ -113,10 +59,10 @@ export default function Register({setEmail,setPassword}) {
         <p>
           Ready to watch? Enter your email to create or restart your membership.
          </p>
-      {!emailRef.current.value ? (
+      {!_email ? (
           <div className="input">
             <input type="email" placeholder="email address" ref={emailRef} />
-            <button className="registerButton" onClick={()=>{setEmail(emailRef.current.value);}}>
+            <button className="registerButton" onClick={handleStart}>
               Get Started
            </button>
           </div>
@@ -127,10 +73,8 @@ export default function Register({setEmail,setPassword}) {
               Start
             </button>
            </div>
-         )
-         }  
+         )}  
       </div>  
     </div> 
->>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
   );
 }

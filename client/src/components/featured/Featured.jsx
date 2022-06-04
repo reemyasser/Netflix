@@ -2,18 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import "./featured.css"
 
-<<<<<<< HEAD
-import { InfoOutlined, PlayArrow } from '@mui/icons-material';
-import { useTranslation } from 'react-i18next';
-
-
-function Featured({type}) {
-
-   const { t, i18n } = useTranslation();
-  let [content,setcontent]=useState([])
-
-  useEffect(()=>{
-=======
 import {  PlayArrow } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -76,17 +64,12 @@ function Featured({type,Token}) {
 
   useEffect(()=>{
     console.log(type)
->>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
     try{
       fetch(`movies/random/${type?"?type="+type:""}`,{
         
           headers: {
             token:
-<<<<<<< HEAD
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODJiNjI4YzIzNGI0MWE1ODcwNGVkMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MzI0NzgxMCwiZXhwIjoxNjUzNjc5ODEwfQ.6MVzAfrHKCGhzmDu1im54AKrcpnLtkfKTYbzVk70hOk"
-=======
             `Bearer ${Token}`
->>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
           },
         
       }).then((respose)=>(respose.json()))
@@ -95,12 +78,7 @@ function Featured({type,Token}) {
     catch(err){
       console.log(err)
     }
-<<<<<<< HEAD
-  },[])
-  // console.log(content[0].img);
-=======
   },[type,Token])
->>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
   return (
     <div className="featured">
       {type &&(
@@ -110,24 +88,6 @@ function Featured({type,Token}) {
 
 
 <span>{type === "movie" ? "Movies" : "Series"}</span>
-<<<<<<< HEAD
-          <select name="genre" id="genre">
-            <option>{t("Genre")}</option>
-            <option value="adventure">{t("Adventure")}</option>
-            <option value="comedy">{t("Comedy")}</option>
-            <option value="crime">{t("Crime")}</option>
-            <option value="fantasy">{t("Fantasy")}</option>
-            <option value="historical">{t("Historical")}</option>
-            <option value="horror">{t("Horror")}</option>
-            <option value="romance">{t("Romance")}</option>
-            <option value="sci-fi">{t("Sci-fi")}</option>
-            <option value="thriller">{t("Thriller")}</option>
-            <option value="western">{t("Western")}</option>
-            <option value="animation">{t("Animation")}</option>
-            <option value="drama">{t("Drama")}</option>
-            <option value="documentary">{t("Documentary")}</option>
-          </select>
-=======
 
 
 
@@ -185,36 +145,11 @@ function Featured({type,Token}) {
             <option value="drama">Drama</option>
             <option value="documentary">Documentary</option>
           </select> */}
->>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
 </div>
 
       )}
         
         <img 
-<<<<<<< HEAD
-            src={content.img}   alt=""/>
-
-<div className="info">
-        <img
-          src={content.img}        alt=""
-        />
-        <span className="desc">
-        {content.img}  
-        </span>
-
-        <div className="buttons">
-
-        <button className="play">
-
-          <PlayArrow/>
-          <span>{t("play")}</span>
-        </button>
-        <button className="more">
-
-          <InfoOutlined/>
-          <span>{t("Info")}</span>
-        </button>
-=======
       
             src={content.img}   alt=""/>
 
@@ -239,7 +174,6 @@ function Featured({type,Token}) {
 
 
 
->>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
 
 
         </div>
