@@ -13,12 +13,17 @@
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "http-proxy": "^1.18.1",
+<<<<<<< HEAD
     "i18next": "^21.8.4",
     "i18next-browser-languagedetector": "^6.1.4",
     "i18next-http-backend": "^1.4.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-i18next": "^11.16.9",
+=======
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "sass": "^1.51.0",

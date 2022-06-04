@@ -1,10 +1,14 @@
 
+<<<<<<< HEAD
 
 import { LineAxisOutlined } from '@mui/icons-material'
+=======
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
 import React, { useEffect, useState } from 'react'
 import Featured from '../../components/featured/Featured'
 import List from '../../components/list/List'
 import {v4 as uuid} from 'uuid'
+<<<<<<< HEAD
 import axios from "axios"
 import Navbar from '../../components/navbar/Navbar'
 import Seperator  from '../../components/Seperator/Seperator'
@@ -29,6 +33,27 @@ function Home({type}) {
   useEffect(() => {
  
       try {
+=======
+import Navbar from '../../components/navbar/Navbar'
+
+import "./home.css"
+import { useLocation } from 'react-router-dom'
+
+
+
+function Home({type,stateChanger,Token,User}) {
+  let [list,setLists]=useState();
+  let [genre,setgenre]=useState();
+  let [searchval,setsearch]=useState();
+
+  const location =useLocation();
+  
+  useEffect(() => {
+
+
+      try {
+        console.log(location)
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
        fetch(
           `lists${type ? "?type=" + type : ""}${
             genre ? "&genre=" + genre : ""
@@ -36,7 +61,11 @@ function Home({type}) {
           {
             headers: {
               token:
+<<<<<<< HEAD
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODJiNjI4YzIzNGI0MWE1ODcwNGVkMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MzI0NzgxMCwiZXhwIjoxNjUzNjc5ODEwfQ.6MVzAfrHKCGhzmDu1im54AKrcpnLtkfKTYbzVk70hOk"
+=======
+              `Bearer ${Token}`
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
             },
           }
       
@@ -46,6 +75,7 @@ function Home({type}) {
         console.log(err);
       }
 
+<<<<<<< HEAD
   }, [type, genre]);
   // useEffect(() => {
   //   const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -106,6 +136,21 @@ function Home({type}) {
        <FooterCompound/>
  
 
+=======
+  }, [type,genre,Token,location.state]);
+ 
+  return (
+    <div className="home">
+        <Navbar StateChanger={stateChanger} User={User}/>
+
+        
+        <Featured type={type} Token={Token} />
+
+       {list&& list.map((list)=>(
+        <List state={searchval}  key={uuid()} list={list}/>
+
+       ))}
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
         </div>
   )
 }

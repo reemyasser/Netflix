@@ -100,6 +100,41 @@ router.get("/random", verify, async (req, res) => {
       res.status(500).json(err);
     }
   });
+<<<<<<< HEAD
+=======
+  router.get("/search", verify, async (req, res) => {
+    const search = req.query.search;
+    let movie;
+    try {
+     
+const userRegex = new RegExp(search, 'i')
+        movie = await Movie.find(
+          { title:userRegex}
+          
+        );
+     
+      res.status(200).json(movie);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+  router.get("/category", verify, async (req, res) => {
+    const category = req.query.category;
+    let movie;
+    try {
+     
+const userRegex = new RegExp(category, 'i')
+        movie = await Movie.find(
+          { genre:userRegex}
+          
+        );
+     
+      res.status(200).json(movie);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
       //get all
       router.get("/",async(req,res)=>{
          

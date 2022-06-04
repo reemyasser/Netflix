@@ -1,20 +1,28 @@
 .list {
   width: 100%;
+<<<<<<< HEAD
   margin-top: 50px;
   
 
   
   
   
+=======
+  margin-top: 10px;
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
 }
 .list .listTitle {
   color: white;
   font-size: 20px;
   font-weight: 500;
+<<<<<<< HEAD
   
   margin-left: 50px;
   
 
+=======
+  margin-left: 50px;
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
 }
 .list .wrapper {
   position: relative;
@@ -22,15 +30,25 @@
 .list .wrapper .sliderArrow {
   width: 50px;
   height: 100%;
+<<<<<<< HEAD
   background-color:none;
   color: red;
   position: absolute;
   z-index: 999;
+=======
+  background-color: #161616;
+  color: white;
+  position: absolute;
+  z-index: 99;
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
   top: 0;
   bottom: 0;
   margin: auto;
   cursor: pointer;
+<<<<<<< HEAD
   
+=======
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
 }
 .list .wrapper .sliderArrow.left {
   left: 0;
@@ -41,10 +59,17 @@
 .list .wrapper .container {
   margin-left: 50px;
   display: flex;
+<<<<<<< HEAD
   margin-top: 30px;
   margin-bottom: 100px;
   width: max-content;
   transform: translateX(0px);
   transition: all 0.1s ease;
   
+=======
+  margin-top: 10px;
+  width: max-content;
+  transform: translateX(0px);
+  transition: all 1s ease;
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
 }
