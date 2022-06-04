@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+import { ArrowDropDown, Notifications, Search } from '@mui/icons-material'
+import { useState} from 'react'
+
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+
+import "./navbar.css"
+
+function Navbar() {
+  const { t, i18n } = useTranslation();
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    window.onscroll = () => {
+=======
 import { ArrowDropDown} from '@mui/icons-material'
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
@@ -23,13 +38,20 @@ function Navbar({StateChanger,User}) {
     const navigate=useNavigate();
 
         window.onscroll = () => {
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
         setIsScrolled(window.pageYOffset === 0 ? false : true);
         return () => (window.onscroll = null);
       };
      
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+      const changeLanguage = (lng) => {
+        i18n.changeLanguage(lng);
+      }
+>>>>>>> be08350d8f0e00d3ea213000d59b5af1421ca9c3
 =======
 useEffect(()=>{
 
@@ -37,7 +59,11 @@ useEffect(()=>{
 const searchvalue=(e)=>{
 setsearch(e.target.value);
 }
+<<<<<<< HEAD
 >>>>>>> 79fa2c045847a3207cb44f00bd871ded90a34b83
+=======
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
+>>>>>>> be08350d8f0e00d3ea213000d59b5af1421ca9c3
 
   return (
      <div className={isScrolled ? "navbar scrolled" : "navbar"}>
@@ -47,6 +73,24 @@ setsearch(e.target.value);
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
             alt=""
           />
+<<<<<<< HEAD
+  <Link to={"/"} className="Link">
+          <span>{t("Homepage")}</span>
+          </Link>
+          <Link   className="Link" to={"/series"}>
+          <span>{t("Series")}</span>
+          </Link>
+          <Link  className="Link" to={"/movies"}>
+          <span>{t("Movies")}</span>
+          </Link>
+          <span>{t("New and Popular")}</span>
+          <span>{t("My List")}</span>
+        </div>
+        <div className="right">
+          <Search className="icon" />
+          <span>{t("KID")}</span>
+          <Notifications className="icon" />
+=======
           <Link state={searchval} to={"/home"} className="Link">
           <span>Homepage</span>
           </Link>
@@ -85,6 +129,7 @@ setsearch(e.target.value);
 
 
 
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
           <img
             src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
             alt=""
@@ -92,12 +137,46 @@ setsearch(e.target.value);
           <div className="profile">
             <ArrowDropDown className="icon" />
             <div className="options">
+<<<<<<< HEAD
+              <span>{t("Settings")}</span>
+              <span>{t("Logout")}</span>
+=======
               <span>{User["email"]}</span>
               <Button onClick={()=>{StateChanger(false);navigate('/login');}}>Logout</Button>
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
             </div>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+      
+      {/* <button onClick={() => changeLanguage('ar')}>ar</button>
+      <button onClick={() => changeLanguage('en')}>en</button> */}
+
+
+<div className="btn-group">
+                {i18n.language === "ar" && <input 
+                    className="btn btn-outline-info" 
+                    type="button" 
+                    value="EN"
+                    onClick={()=>{i18n.changeLanguage("en")}}
+                />}
+
+                {i18n.language === "en" && <input 
+                    className="btn btn-outline-info" 
+                    type="button" 
+                    value="AR"
+                    onClick={()=>{i18n.changeLanguage("ar")}}
+                />}
+            </div>
+        
+        </div>
+        
+  )
+}
+
+export default Navbar
+=======
        
         
         </div>
@@ -105,3 +184,4 @@ setsearch(e.target.value);
 }
 
 export default Navbar;
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54

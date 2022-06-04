@@ -9,6 +9,10 @@ const cors = require("cors");
 const stripe=require("stripe")("sk_test_51L3S1IKeZRWSRqtqEzK40FNaHy2jRkcno9VSf8fAGvGuqTKdPWVRnAFNCZlSZNCV3daqywwFLSjwau70C2KscqLe00394A2V7Q");
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
 dotenv.config();
 
 //MongoDB Connection

@@ -1,4 +1,11 @@
 
+<<<<<<< HEAD
+import "./login.css";
+import { useTranslation } from 'react-i18next';
+
+export default function Login() {
+  const { t, i18n } = useTranslation();
+=======
 import { Button } from "@mui/material";
 import { NavLink, useNavigate } from "react-router-dom";
 import {useState} from "react";
@@ -41,12 +48,16 @@ export default function Login({stateChanger,Token,User}) {
   checkAuth(email,password);
   
  };
+<<<<<<< HEAD
  const handleLogin=(GoogleData)=>{
   console.log(GoogleData.profileObj);
 }
  const handleFailure=(result)=>{
   console.log(result)
  }
+=======
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
+>>>>>>> be08350d8f0e00d3ea213000d59b5af1421ca9c3
   return (
     <div className="login">
       <div className="top">
@@ -59,6 +70,20 @@ export default function Login({stateChanger,Token,User}) {
         </div>
       </div>
       <div className="container">
+<<<<<<< HEAD
+      <form>
+          <h1>{t("Sign In")}</h1>
+          <input type="email" placeholder={t("Email or phone number")} />
+          <input type="password" placeholder={t("Password")} />
+          <button className="loginButton">{t("Sign In")}</button>
+          <span>
+          {t("New to Netflix?")} <b>{t("Sign up now.")}</b>
+          </span>
+          <small>
+          {t(`This page is protected by Google reCAPTCHA to ensure you're not a bot.`)} <b>{t(`Learn more`)}</b>.
+          </small>
+        </form>
+=======
       <div  className="form">
           <h1>Sign In</h1>
           <input type="email" placeholder="Email"  onChange={(e)=>{ setEmail(e.target.value);}}/>
@@ -78,6 +103,7 @@ export default function Login({stateChanger,Token,User}) {
             bot. <b>Learn more</b>.
           </small>
         </div>
+>>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
 
 
       </div>
