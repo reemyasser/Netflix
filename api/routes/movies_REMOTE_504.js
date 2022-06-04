@@ -102,8 +102,6 @@ router.get("/random", verify, async (req, res) => {
   });
 <<<<<<< HEAD
 =======
-<<<<<<< HEAD
-=======
   router.get("/search", verify, async (req, res) => {
     const search = req.query.search;
     let movie;
@@ -137,7 +135,6 @@ const userRegex = new RegExp(category, 'i')
     }
   });
 >>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
->>>>>>> be08350d8f0e00d3ea213000d59b5af1421ca9c3
       //get all
       router.get("/",async(req,res)=>{
          

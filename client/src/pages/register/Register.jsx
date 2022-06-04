@@ -1,4 +1,6 @@
 import { useRef } from "react";
+<<<<<<< HEAD
+=======
 import { useState } from "react";
 <<<<<<< HEAD
 import "./register.css";
@@ -7,12 +9,20 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 =======
+>>>>>>> be08350d8f0e00d3ea213000d59b5af1421ca9c3
 import { NavLink,useNavigate } from "react-router-dom";
 import "./register.css";
 
-export default function Register({stateChanger}) {
-  const [_email, setEmail] = useState("");
+export default function Register({setEmail,setPassword}) {
+
   const navigate=useNavigate();
+<<<<<<< HEAD
+  const emailRef = useRef('');
+  const passwordRef = useRef('');
+  const handleFinish = () => {
+    setPassword(passwordRef.current.value);
+    navigate('/payment');
+=======
 >>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
 
   const emailRef = useRef();
@@ -49,6 +59,7 @@ export default function Register({stateChanger}) {
         console.log(err)
       }
    
+>>>>>>> be08350d8f0e00d3ea213000d59b5af1421ca9c3
     
   }
   
@@ -102,10 +113,10 @@ export default function Register({stateChanger}) {
         <p>
           Ready to watch? Enter your email to create or restart your membership.
          </p>
-      {!_email ? (
+      {!emailRef.current.value ? (
           <div className="input">
             <input type="email" placeholder="email address" ref={emailRef} />
-            <button className="registerButton" onClick={handleStart}>
+            <button className="registerButton" onClick={()=>{setEmail(emailRef.current.value);}}>
               Get Started
            </button>
           </div>
@@ -116,7 +127,8 @@ export default function Register({stateChanger}) {
               Start
             </button>
            </div>
-         )}  
+         )
+         }  
       </div>  
     </div> 
 >>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54

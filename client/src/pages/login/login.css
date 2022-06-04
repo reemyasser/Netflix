@@ -70,6 +70,8 @@
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
+  margin-top:20px;
+  margin-bottom: 20px;
 }
 <<<<<<< HEAD
 .login .container form span {

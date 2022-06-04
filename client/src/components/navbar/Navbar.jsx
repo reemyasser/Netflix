@@ -44,9 +44,14 @@ function Navbar({StateChanger,User}) {
       };
      
 <<<<<<< HEAD
+<<<<<<< HEAD
+
+
+=======
       const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
       }
+>>>>>>> be08350d8f0e00d3ea213000d59b5af1421ca9c3
 =======
 useEffect(()=>{
 
@@ -54,7 +59,11 @@ useEffect(()=>{
 const searchvalue=(e)=>{
 setsearch(e.target.value);
 }
+<<<<<<< HEAD
+>>>>>>> 79fa2c045847a3207cb44f00bd871ded90a34b83
+=======
 >>>>>>> 17009a013a73f2f26e197ac3eee3fffaea0d3e54
+>>>>>>> be08350d8f0e00d3ea213000d59b5af1421ca9c3
 
   return (
      <div className={isScrolled ? "navbar scrolled" : "navbar"}>
