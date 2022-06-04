@@ -27,12 +27,17 @@ function Navbar({StateChanger,User}) {
         return () => (window.onscroll = null);
       };
      
+<<<<<<< HEAD
+
+
+=======
 useEffect(()=>{
 
 },[searchval])
 const searchvalue=(e)=>{
 setsearch(e.target.value);
 }
+>>>>>>> 79fa2c045847a3207cb44f00bd871ded90a34b83
 
   return (
      <div className={isScrolled ? "navbar scrolled" : "navbar"}>

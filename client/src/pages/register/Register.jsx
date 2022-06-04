@@ -1,38 +1,15 @@
 import { useRef } from "react";
-import { useState } from "react";
 import { NavLink,useNavigate } from "react-router-dom";
 import "./register.css";
 
-export default function Register({stateChanger}) {
-  const [_email, setEmail] = useState("");
+export default function Register({setEmail,setPassword}) {
+
   const navigate=useNavigate();
-
-  const emailRef = useRef();
-  const passwordRef = useRef();
-
-  const handleStart = () => {
-    setEmail(emailRef.current.value);
-  };
+  const emailRef = useRef('');
+  const passwordRef = useRef('');
   const handleFinish = () => {
-    const data = {email:_email,password:passwordRef.current.value};
-    const myRequest = new Request('http://localhost:4000/api/auth/register', {
-        method: 'POST',
-        headers:{
-          'Content-Type':'application/json',
-        },  
-        body:JSON.stringify(data),
-      });
-      try{
-       
-         fetch(myRequest)
-         .then(()=>{stateChanger(true);})
-         .then((data)=>navigate('/login'))
-        .catch((err)=>console.log("error"+ err))
-      }
-      catch(err){
-        console.log(err)
-      }
-   
+    setPassword(passwordRef.current.value);
+    navigate('/payment');
     
   }
   
@@ -59,10 +36,10 @@ export default function Register({stateChanger}) {
         <p>
           Ready to watch? Enter your email to create or restart your membership.
          </p>
-      {!_email ? (
+      {!emailRef.current.value ? (
           <div className="input">
             <input type="email" placeholder="email address" ref={emailRef} />
-            <button className="registerButton" onClick={handleStart}>
+            <button className="registerButton" onClick={()=>{setEmail(emailRef.current.value);}}>
               Get Started
            </button>
           </div>
@@ -73,7 +50,8 @@ export default function Register({stateChanger}) {
               Start
             </button>
            </div>
-         )}  
+         )
+         }  
       </div>  
     </div> 
   );
