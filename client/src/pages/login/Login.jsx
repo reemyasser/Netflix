@@ -64,12 +64,6 @@ export default function Login({stateChanger,Token,User}) {
           <input type="email" placeholder="Email"  onChange={(e)=>{ setEmail(e.target.value);}}/>
           <input type="password" placeholder="Password"  onChange={(e)=>{ setPassword(e.target.value);}} />
           <Button className="loginButton" onClick={check}>Sign In</Button>
-          <GoogleLogin 
-          clientId="96670822229-6qsrb44c6dgnul8nh93apovrpus4g8b1.apps.googleusercontent.com"
-          onSuccess={handleLogin}
-          onFailure={handleFailure}
-          cookiePolicy={'single_host_origin'}>
-          </GoogleLogin>
           <span>
             New to Netflix? <NavLink to={`/register`}>Sign up now.</NavLink>
           </span>
